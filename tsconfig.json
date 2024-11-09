@@ -25,3 +25,6 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
+
+// AUTH_GITHUB_ID="Ov23liysEGeikAHRdK9M"
+// AUTH_GITHUB_SECRET="d9e4d8176d7765432a376528bd54acb90bcd6eb9"
