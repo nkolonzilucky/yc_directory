@@ -32,7 +32,12 @@ const Navbar = async () => {
             ) : (
                 <form action={async () => {
                     "use server"
-                    await signIn('github')
+                    try {
+                      await signIn('github', {redirectTo: 'http://127.0.0.1:3000/'})
+                      
+                    } catch (error) {
+                      console.log(error)
+                    }
                 }}>
                     <button type='submit'>
                     <span>Login</span>
