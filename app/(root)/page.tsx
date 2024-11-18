@@ -1,4 +1,4 @@
-import { HomeIcon } from '@heroicons/react/24/outline'
+import SearchForm from '../components/SearchForm';
 
 
 export default function Home() {
@@ -9,7 +9,12 @@ export default function Home() {
         Pitch Your Startup <hr />
         Connect with Entrepreneurs
       </h1>
+      <p className="sub-heading max-w-3">
+        Submit Ideas, Vote on Pitches, and Get Noticed in Virtual Competitions.
+      </p>
+    <SearchForm />
     </section>
+    
     </>
   );
 }
