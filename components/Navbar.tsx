@@ -30,19 +30,24 @@ const Navbar = async () => {
                     </Link>
                </> 
             ) : (
+              <>
                 <form action={async () => {
-                    "use server"
-                    try {
-                      await signIn('github', {redirectTo: 'http://127.0.0.1:3000/'})
-                      
-                    } catch (error) {
-                      console.log(error)
-                    }
+                  "use server"
+                  try {
+                    await signIn('github', {redirectTo: 'http://127.0.0.1:3000/'})
+                    
+                  } catch (error) {
+                    console.log(error)
+                  }
                 }}>
                     <button type='submit'>
                     <span>Login</span>
                     </button>
                 </form>
+                <Link href={'/startup/create'}>
+                    <span>Create</span> 
+                </Link>
+              </>
             )}
         </div>
       </nav>
