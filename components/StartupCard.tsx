@@ -4,8 +4,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { Button } from './ui/button'
+import { Author, Startup } from '@/sanity/types'
 
-const StartupCard = ({ post }: { post: StartupCardType }) => {
+export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author }
+
+const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   return (
     <li className='startup-card group'>
         <div className="flex-between">
@@ -26,7 +29,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
                     <h3 className='text-26-semibold line-clamp-1 mt-2'>{post.title}</h3>
                 </Link>
             </div>
-            <Link href={`/user/${post.authorId}`}>
+            <Link href={`/user/${post.author?.id}`}>
                 <Image src={'https://dummyjson.com/image/600x400'} alt='post-pic' width={48} height={48} className='rounded-full' />
             </Link>
         </div>
@@ -39,7 +42,7 @@ const StartupCard = ({ post }: { post: StartupCardType }) => {
         </Link>
       
       <div className='flex-between gap-3 mt-5'>
-        <Link href={`/?query-${post.category.toLowerCase()}`}>
+        <Link href={`/?query-${post.category?.toLowerCase()}`}>
             <p className='text-16-medium'>{post.category}</p>
         </Link>
         <Button className='startup-card' asChild>
