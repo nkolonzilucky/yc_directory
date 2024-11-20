@@ -172,14 +172,20 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries.ts
 // Variable: STARTUPS_QUERY
-// Query: *[_type == "startup" && defined(slug.current)] | order(_createdAt desc)  {  _id,   views,  _createdAt,  author -> {    _id, name, image, bio  },  title,  slug,  desciption,  category,  image}
+// Query: *[_type == "startup" && defined(slug.current)] | order(_createdAt desc)  {  _id,   views,  _createdAt,  author -> {  _type,  _createdAt,  _updatedAt,  _rev,  id,  name,  username,  email,  image,  bio  },  title,  slug,  desciption,  category,  image,  _type,   _updatedAt,   _rev}
 export type STARTUPS_QUERYResult = Array<{
   _id: string;
   views: number | null;
   _createdAt: string;
   author: {
-    _id: string;
+    _type: "author";
+    _createdAt: string;
+    _updatedAt: string;
+    _rev: string;
+    id: number | null;
     name: string | null;
+    username: string | null;
+    email: string | null;
     image: string | null;
     bio: string | null;
   } | null;
@@ -188,12 +194,15 @@ export type STARTUPS_QUERYResult = Array<{
   desciption: null;
   category: string | null;
   image: string | null;
+  _type: "startup";
+  _updatedAt: string;
+  _rev: string;
 }>;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"startup\" && defined(slug.current)] | order(_createdAt desc)  {\n  _id, \n  views,\n  _createdAt,\n  author -> {\n    _id, name, image, bio\n  },\n  title,\n  slug,\n  desciption,\n  category,\n  image\n}": STARTUPS_QUERYResult;
+    "*[_type == \"startup\" && defined(slug.current)] | order(_createdAt desc)  {\n  _id, \n  views,\n  _createdAt,\n  author -> {\n  _type,\n  _createdAt,\n  _updatedAt,\n  _rev,\n  id,\n  name,\n  username,\n  email,\n  image,\n  bio\n  },\n  title,\n  slug,\n  desciption,\n  category,\n  image,\n  _type, \n  _updatedAt, \n  _rev\n}": STARTUPS_QUERYResult;
   }
 }

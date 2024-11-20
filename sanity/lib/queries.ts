@@ -6,11 +6,23 @@ defineQuery(`*[_type == "startup" && defined(slug.current)] | order(_createdAt d
   views,
   _createdAt,
   author -> {
-    _id, name, image, bio
+  _type,
+  _createdAt,
+  _updatedAt,
+  _rev,
+  id,
+  name,
+  username,
+  email,
+  image,
+  bio
   },
   title,
   slug,
   desciption,
   category,
-  image
+  image,
+  _type, 
+  _updatedAt, 
+  _rev
 }`)
