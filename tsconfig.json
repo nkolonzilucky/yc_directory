@@ -26,5 +26,8 @@
   "exclude": ["node_modules"]
 }
 
+// AUTH_SECRET="Gc5fi3QayOjN3Vex6JzBm92gLDkTlYrtIWmMS/5U14c=" # Added by `npx auth`. Read more: https://cli.authjs.dev
 // AUTH_GITHUB_ID="Ov23liysEGeikAHRdK9M"
 // AUTH_GITHUB_SECRET="d9e4d8176d7765432a376528bd54acb90bcd6eb9"
+// NEXT_PUBLIC_SANITY_PROJECT_ID="yo4dhvbl"
+// NEXT_PUBLIC_SANITY_DATASET="production"
