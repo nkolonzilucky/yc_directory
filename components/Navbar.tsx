@@ -47,6 +47,9 @@ const Navbar = async () => {
                 <Link href={'/startup/create'}>
                     <span>Create</span> 
                 </Link>
+                <Link href={'/studio'}>
+                <span>studio</span>
+                </Link>
               </>
             )}
         </div>
