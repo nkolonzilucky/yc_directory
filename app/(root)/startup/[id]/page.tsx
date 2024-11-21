@@ -11,9 +11,25 @@ const page = async ({ params }: { params: Promise<{ id: string }>}) => {
 
     if (!post) return notFound();
   return (
-    <div>
-      {post.title}
-    </div>
+    <>
+    <section className='pink_container !min-h-[230px]'>
+      <h1 className="heading">{post.title}</h1>
+      <p className="sub-heading !max-w-5xl">{post.description}</p>
+    </section>
+    <section className="section_container">
+      <Image 
+      src={post.image} 
+      alt="thumbnail"
+      className="w-full h-auto rounded-xl"
+      />
+      <div className="space-y-5 mt-10 max-w-4xl mx-auto">
+        <div className="flex-between gap-5">
+          
+        </div>
+
+      </div>
+    </section>
+    </>
   )
 }
 
