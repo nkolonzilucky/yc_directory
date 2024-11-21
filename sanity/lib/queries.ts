@@ -16,7 +16,7 @@ defineQuery(`*[_type == "startup" && defined(slug.current) && !defined($search) 
 }`)
 
 export const STARTUP_BY_ID_QUERY = 
-defineQuery(`*[_type == "startup" && _id][0]{ 
+defineQuery(`*[_type == "startup" && _id == $id][0]{ 
  _id,
  title,
  slug,
@@ -26,7 +26,7 @@ defineQuery(`*[_type == "startup" && _id][0]{
  },
  views,
  description,
- category,
+ category, 
  image,
  pitch
 }`)
