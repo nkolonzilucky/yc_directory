@@ -9,7 +9,8 @@ import { client } from '@/sanity/lib/client';
 
 export default async function Home({ searchParams } : { searchParams: Promise<{query?: string}> }) {
   const query = (await searchParams).query
-  const posts = await client.fetch(STARTUPS_QUERY)
+  const params = { search: query || null } 
+  const posts = await client.fetch(STARTUPS_QUERY, params)
   // const {data: posts} = await sanityFetch({query: STARTUPS_QUERY})
 
   // const posts = [

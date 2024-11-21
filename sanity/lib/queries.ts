@@ -1,27 +1,16 @@
 import { defineQuery } from "next-sanity";
 
 export const STARTUPS_QUERY = 
-defineQuery(`*[_type == "startup" && defined(slug.current)] | order(_createdAt desc)  { 
-  views,
-  _createdAt,
-  author -> {
-  _type,
-  _createdAt,
-  _updatedAt,
-  _rev,
-  id,
-  name,
-  username,
-  email,
-  image,
-  bio
-  },
-  title,
-  slug,
-  desciption,
-  category,
-  image,
-  _type, 
-  _updatedAt, 
-  _rev
+defineQuery(`*[_type == "startup" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search ] | order(_createdAt desc)  { 
+ _id,
+ title,
+ slug,
+ _createdAt,
+ author -> {
+  _id, name, image, bio
+ },
+ views,
+ description,
+ category,
+ image
 }`)
