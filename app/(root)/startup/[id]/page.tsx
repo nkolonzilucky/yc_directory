@@ -3,8 +3,10 @@ import { STARTUP_BY_ID_QUERY } from '@/sanity/lib/queries';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import React from 'react'
+import React, { Suspense } from 'react'
 import markdownit from 'markdown-it'
+import { Skeleton } from '@/components/ui/skeleton';
+import View from '@/components/View';
 
 const md = markdownit();
 
@@ -27,6 +29,8 @@ const page = async ({ params }: { params: Promise<{ id: string }>}) => {
       <Image 
       src={post.image} 
       alt="thumbnail"
+      width={50}
+      height={50}
       className="w-full h-auto rounded-xl"
       />
       <div className="space-y-5 mt-10 max-w-4xl mx-auto">
@@ -58,6 +62,10 @@ const page = async ({ params }: { params: Promise<{ id: string }>}) => {
       </div>
       <hr className='divider' />
       {/* TOD: EDITOR SELECTED STARTUPS */}
+      <Suspense fallback={<Skeleton />}>
+      <View id={post._id} />
+
+      </Suspense>
     </section>
     
     </>
@@ -65,3 +73,4 @@ const page = async ({ params }: { params: Promise<{ id: string }>}) => {
 }
 
 export default page
+ 
