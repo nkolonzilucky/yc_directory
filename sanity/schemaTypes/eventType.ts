@@ -1,7 +1,8 @@
+
 import { defineType, defineField, defineArrayMember } from 'sanity'
 
 export const eventtype = defineType({
-    type: "object",
+    type: "document",
     name: "eventtype",
     title: "EventType",
     fields: [
@@ -17,11 +18,7 @@ export const eventtype = defineType({
         name: "list1",
         title: "list1",
         of: [
-          defineArrayMember({
-            type: "object",
-            name: "string",
-            fields: [{ type: "string", name:'one' }],
-          }),
+          defineArrayMember({ type: "reference", to: [{ type: "alarmtype" }] }),
         ],
       }),
     ],
